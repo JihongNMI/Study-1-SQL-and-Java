@@ -11,6 +11,15 @@ class Book {
         this.title = title;        // 필드에 값 저장
     } 
 }
+
+다음 호출
+Book b1 = new Book(); // 2번 호출
+Book b2 = new Book("자바의 정석"); // 3번 호출
+
+값은
+b1.title, b1.pages는 null 0
+b2.title = "자바의 정석" b2.pages 는 0
+
 ```
 
 
