@@ -139,5 +139,17 @@ printTitle()은 메서드 이름
 
 ---
 
+# 초콜릿 예시
 
+```
+String Choco(int a) {
+    if (a == 50)
+        return "초코 발견";
+    else
+        return a + " 페이지에선 초코 미발견";
+}
 
+String abc = b2.Choco(50);
+
+-> 즉, 맞아요, abc 안에 "초코 발견"이 저장됩니다 ✅
+```
