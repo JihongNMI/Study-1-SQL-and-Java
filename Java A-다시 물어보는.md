@@ -1,7 +1,18 @@
 # 순서는 필드 생성자 메소드 (게터 세터 일반)
+예시 코드
 
-요약
-ㅇㅇ
+```
+class Book {
+    String title;   // 필드
+    int pages;      // 필드
+
+    public Book() { }              // 기본 생성자
+    public Book(String title) {    // 매개변수 있는 생성자
+        this.title = title;        // 필드에 값 저장
+    } 
+}
+```
+
 
 # 생성자
 void가 안되는건 알겟고 
@@ -25,7 +36,6 @@ Book b2 = new Book("자바의 정석");     // 3번 호출
 ---
 
 # 위에 예시에서 Book b2 = new Book("자바의 정석") 이걸 하면 바로 ...뭐가 되지?
-
 **O : b2.title → "자바의 정석"**
 
 b2(title) 은 "정석"이 아니고 b2.title이 '정석'인건가? b2("자바의 정석") → 이런 건 존재하지 않음 ❌
@@ -117,5 +127,8 @@ class Book {
 printTitle()은 메서드 이름
 
 객체의 동작(행동)을 수행
+
+---
+
 
 
