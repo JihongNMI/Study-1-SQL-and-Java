@@ -1,5 +1,6 @@
 # 순서는 필드 생성자 메소드 (게터 세터 일반)
 
+요약
 ㅇㅇ
 
 # 생성자
@@ -66,3 +67,55 @@ System.out.println(b2.xyz);  // 출력: 자바의 정석
 ```
 
 ✅ 이렇게 하면 b2.xyz가 "자바의 정석"이 됨.
+
+# 필드가 메소드야?
+
+아니요 😄 필드와 메서드는 완전히 다른 개념이에요.
+
+1️⃣ 필드(Field)
+
+클래스 안에 있는 변수
+
+객체의 상태(state)를 저장
+
+```
+class Book {
+    String title;   // 필드
+    int pages;      // 필드
+}
+```
+
+title과 pages는 메서드 이름이 아니라 변수 이름
+
+```
+Book b1 = new Book();
+b1.title = "자바";  // b1의 title
+
+Book b2 = new Book();
+b2.title = "파이썬"; // b2의 title
+```
+
+2️⃣ 메서드(Method)
+
+클래스 안에 정의된 함수
+
+객체가 수행할 동작을 정의
+
+```
+class Book {
+    void printTitle() {         // 메서드
+        System.out.println(title);
+    }
+}
+```
+
+printTitle()은 메서드 이름
+
+객체의 동작(행동)을 수행
+
+| 구분   | 필드                | 메서드                      |
+| ---- | ----------------- | ------------------------ |
+| 무엇?  | 변수, 객체 상태 저장      | 함수, 객체 행동 정의             |
+| 이름   | title, xyz, pages | printTitle(), getTitle() |
+| 값/실행 | 값 가짐              | 호출 시 실행됨                 |
+| 예    | `b2.title = "자바"` | `b2.printTitle();`       |
