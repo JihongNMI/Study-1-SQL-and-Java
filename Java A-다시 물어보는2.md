@@ -39,3 +39,60 @@ TreeMap (넣으면 자동으로 정렬되는 사전): Map<String, String> map = 
 ✍️ 한 줄 정리
 
 "네, 자바가 미리 정의해둔 표준 인터페이스들이며, 우리가 자바 개발을 할 때 가장 많이 마주하게 될 거물급 이름들입니다."
+
+---
+
+---
+
+# 그거
+
+```
+// 무엇이든 담을 수 있는 상자(Box) 클래스
+class Box<T> {
+    private T item;
+
+    public void setItem(T item) {
+        this.item = item;
+    }
+
+    public T getItem() {
+        return item;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // 1. 숫자를 담는 상자 만들기
+        Box<Integer> numberBox = new Box<>();
+        numberBox.setItem(777);
+        System.out.println("숫자 상자: " + numberBox.getItem()); 
+        // 출력값: 숫자 상자: 777
+
+        // 2. 글자를 담는 상자 만들기
+        Box<String> labelBox = new Box<>();
+        labelBox.setItem("Hello Generics");
+        System.out.println("글자 상자: " + labelBox.getItem()); 
+        // 출력값: 글자 상자: Hello Generics
+    }
+}
+```
+
+# 음 그럼 같은 이름의 변수...가 아니군 클래스인가? Box로, integer도 담고싶고 string도 담고 싶으면 무조건 <T>라고 하는거야?(T일 필요가 없다는건 너의 설명으로 알았어)
+
+맞습니다! 핵심을 정확히 짚으셨어요.
+
+하나의 클래스 설계도(Box)로 Integer도 담고 싶고, String도 담고 싶을 때 바로 그 < >를 사용하는 겁니다. 만약 제네릭이 없다면 우리는 IntegerBox, StringBox를 각각 따로 만들어야 했을 거예요.
+
+1. 왜 <T> 같은 기호를 쓰는가?
+만약 타입을 String으로 딱 박아버리면 그 클래스는 평생 문자열만 담아야 합니다. 하지만 그 자리에 **"아직은 모르겠지만 나중에 정해질 타입"**이라는 의미로 <T>를 써두면, 객체를 생성할 때마다 변신할 수 있는 **'범용 설계도'**가 되는 거죠.
+
+3. 요약하자면
+클래스 하나로 여러 종류의 데이터를 다루고 싶을 때 < >를 쓴다.
+
+< > 안에 들어가는 글자는 **"사용할 때 결정될 타입의 별명"**이다.
+
+별명은 하나일 수도 있고, 콤마(,)를 찍어서 여러 개를 만들 수도 있다.
+
+이해가 팍팍 되시나요? 이제 자바 코드를 보다가 < >가 나오면 **"아, 이 클래스는 타입을 유연하게 바꿔 쓰려고 이름표를 붙여놨구나!"**라고 생각하시면 됩니다.
+
+혹시 이 제네릭에 **"숫자 타입만 들어오게 제한"**하고 싶은 방법도 궁금하신가요? (예: <T extends Number>)
