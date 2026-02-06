@@ -28,6 +28,47 @@
 인터페이스,가능 (인터페이스 구현),가능 (유일한 사용처)
 ```
 
+그래서 3 패턴을 정리하면
+```
+@FunctionalInterface
+interface Adder {
+    int add(int a, int b);
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        // 패턴 1. [정석형] 중괄호와 return을 모두 사용하는 형태
+        // 로직이 한 줄이어도 명시적으로 쓰고 싶을 때 사용합니다.
+        Adder adder1 = (int a, int b) -> {
+            return a + b;
+        };
+
+        // 패턴 2. [초간결형] 중괄호, return, 데이터 타입까지 생략
+        // 람다의 가장 흔한 형태입니다. 한 줄일 때는 결과값이 자동으로 return 됩니다.
+        Adder adder2 = (a, b) -> a + b;
+
+        // 패턴 3. [복합형] 여러 줄의 로직이 들어가는 형태
+        // 중간에 출력문이나 계산 과정이 더 필요할 때 사용하며, 이때는 return을 반드시 써야 합니다.
+        Adder adder3 = (a, b) -> {
+            System.out.println("--- 복잡한 계산 중 ---");
+            int bonus = 100;
+            return a + b + bonus;
+        };
+
+        // 결과 출력
+        System.out.println("결과 1: " + adder1.add(10, 20)); // 결과: 30
+        System.out.println("결과 2: " + adder2.add(10, 20)); // 결과: 30
+        System.out.println("결과 3: " + adder3.add(10, 20)); // 결과: 130
+    }
+}
+```
+
+
+**그런데 이걸로 끝나면 안되고 가장 중요한 것이 있는데...**
+> (map이 람다식을 실행해 준다는 이야기)
+
+---
 
 
 # 발단은 람다식
