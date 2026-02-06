@@ -1,6 +1,6 @@
 # 요약
 
-요약하자면 
+먼저 익명클래스를 요약하자면 
 1. Adder myAdder = new Adder(); // myAdder라는 객체를 Adder 클래스를 통해서 만든다. 이 안에는 .add같은 더해주는 메소드가 있다. 그건 public int add(int a, int b)로 정의해놓은 것이다.
 2. Adder myAdder = new Adder() { }; // myAdder라는 객체를 Adder 클래스를 통해서 만들지만 다른 기능이니 이름은 없어서 익명 클래스라고 부른다. 그리고 그 자리에서 같은 public int add를 @Override를 통해서 덮어씌워서, 임시로 메소드를 수정한다.
 
@@ -11,6 +11,7 @@
 1. Adder myAdder = new Adder(); // myAdder라는 객체를 Adder 클래스를 통해서 만든다. 이 안에는 .add같은 더해주는 메소드가 있다. 그건 public int add(int a, int b)로 정의해놓은 것이다.
 2. Adder myAdder = new Adder() { }; // myAdder라는 객체를 Adder 클래스를 통해서 만들지만 다른 기능을 쓰고 싶어서 개조한 클래스를 만든다. 여기 new Adder는 부모 클래스가 Adder라는 의미일 뿐, 지금 만드는 이 클래스의 이름은 없어서 익명 클래스라고 부른다. 그리고 그 자리에서 같은 public int add를 @Override를 통해서 덮어씌워서, 임시로 메소드를 수정한다.
 
+---
 
 1. 그냥 클래스 : 메소드 영역
 2. 익명 클래스 : 힙 영역, 참조가 끊기면 GC가 수거
@@ -18,6 +19,15 @@
 4. 메모리 뿐 아니라 구조 정리를 위해서 익명 클래스를 사용
 
 ---
+
+그리고 람다식은
+```sql
+구분,익명 클래스 (우리가 배운 것),람다식 (화살표 ->)
+일반 class,가능 (상속 후 @Override),불가능
+추상 class,가능 (상속 후 구현),불가능
+인터페이스,가능 (인터페이스 구현),가능 (유일한 사용처)
+```
+
 
 
 # 발단은 람다식
